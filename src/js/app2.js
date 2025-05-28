@@ -29,7 +29,7 @@ cats=[]
 async function getcatApi(){
 
 
-try {const response = await fetch ("https://catfact.ninja/breeds?limit=200");
+try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
 
     if (!response.ok){
         throw new Error ("Fel....")  
@@ -37,11 +37,12 @@ try {const response = await fetch ("https://catfact.ninja/breeds?limit=200");
   cats = await response.json(); 
  
   
-  let catData=cats.data
+  let catData=cats
   
   console.log(catData);
              
   displayCat(catData);  
+
 
 
 }
@@ -61,17 +62,21 @@ function displayCat (catData) {
       catData.forEach(cat => {  //Loopar igenom kurser+
            let newElLi= document.createElement ("li")   
            let newElButton = document.createElement ("button")
-           let newText=document.createTextNode (cat.breed)  
-           newElButton.setAttribute('id', cat.breed) 
-           newElButton.setAttribute('title', cat.country)
+           let newText=document.createTextNode (cat.name)  
+           newElButton.setAttribute('id', cat.name) 
+           newElButton.setAttribute('title', cat.origin)
+                //   newElButton.setAttribute('class', cat.pattern)
              newElButton.appendChild(newText) 
            newElLi.appendChild(newElButton) 
            catsEl.appendChild(newElLi)
 
+          
+
 
 
 newElLi.addEventListener ("click", showcountry, false); //anropar funktionen showcountre vid klick kattras
-
+newElLi.addEventListener ("click", showOneButton, false); //anropar funktionen showOneButton
+newElLi.addEventListener ("click", showCountryFlag, false); //anropar funktionen showOneButton
 
 
     //    catsEl.innerHTML += `<li id=${cat.country}><button id=${cat.country}>${cat.breed}<button></li>`
@@ -174,10 +179,67 @@ catch (error){console.error(error)}
 
 
 
+ function showOneButton (e) {
+
+    console.log(e.target.id);
+    
+ let catsEl=document.getElementById("cats");
+       catsEl.style.display='none' 
+
+       let oneCatEl=document.getElementById("oneCat")
+       
+       let newElH2 = document.createElement ("h2")
+       let newElP = document.createElement ("p")
+       let newText=document.createTextNode (e.target.id)  
+       let newText2=document.createTextNode ("Kattrasen "+e.target.id+ " är ifrån "+e.target.title+".")  
+
+        newElH2.appendChild(newText) 
+        oneCatEl.appendChild(newElH2) 
+         newElH2.appendChild(newElP) 
+         newElP.appendChild(newText2)
+
+        
+    
+           
+
+ }
+
+
+
+async function showCountryFlag(){
+
+try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
+
+    if (!response.ok){
+        throw new Error ("Fel....")  
+     }
+  cats = await response.json(); 
+ 
+  
+  let catData=cats
+  
+  console.log(catData);
+             
+  displayFlag(catData);  
+
+
+
+}
+  catch (error){console.error(error)}   
+
+
+
+}
 
 
 
 
+  function displayFlag(data)  {
+
+    
+
+
+  }
 
 
 

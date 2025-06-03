@@ -1,11 +1,11 @@
 "use strict"
 
- let map = L.map('map').setView([51.505, -0.09],2);
+//  let map = L.map('map').setView([51.505, -0.09],2);
 
-     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-     maxZoom: 19,
-     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- }).addTo(map);
+//      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//      maxZoom: 19,
+//      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//  }).addTo(map);
 
 // let button1El=document.getElementById("button1")
 // button1El.addEventListener("click", getcatApi);
@@ -45,28 +45,46 @@ try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
 
 
 
+
 }
   catch (error){console.error(error)}   
 }
 
 
+   let numberOfCatsEl = document.getElementById("numberOfCats")
+      numberOfCatsEl.addEventListener("change", getcatApi)
+
 function displayCat (catData) {
 
      console.log(catData);
+
     
     //`<li><button>text<button></li>`
        
        let catsEl=document.getElementById("cats");
        catsEl.innerHTML=""
+    // let numberOfCatsEl = document.getElementById("numberOfCats")
+    // numberOfCatsEl.addEventListener("change", )
 
-      catData.forEach(cat => {  //Loopar igenom kurser+
+    // console.log(numberOfCatsEl.value);
+        
+       catData.length=numberOfCatsEl.value
+      catData.forEach(cat => {  //Loopar igenom kstter
+        //  let newOptionEl= document.createElement ("option")   
+       
+        //  let newText=document.createtextContent(cat.name)
+        // newOptionEl.textContent=cat.name
+        //  newOptionEl.value= cat.name
+        //   catsEl.appendChild(newOptionEl)
+        //  newOptionEl.appendChild(newText)
+
            let newElLi= document.createElement ("li")   
            let newElButton = document.createElement ("button")
            let newText=document.createTextNode (cat.name)  
-           newElButton.setAttribute('id', cat.name) 
-           newElButton.setAttribute('title', cat.origin)
-                //   newElButton.setAttribute('class', cat.pattern)
-             newElButton.appendChild(newText) 
+           newElButton.setAttribute('id', cat.country_code) 
+           newElButton.setAttribute('title', cat.description)
+            newElButton.setAttribute('class', cat.name)
+              newElButton.appendChild(newText) 
            newElLi.appendChild(newElButton) 
            catsEl.appendChild(newElLi)
 
@@ -74,9 +92,9 @@ function displayCat (catData) {
 
 
 
-newElLi.addEventListener ("click", showcountry, false); //anropar funktionen showcountre vid klick kattras
-newElLi.addEventListener ("click", showOneButton, false); //anropar funktionen showOneButton
-newElLi.addEventListener ("click", showCountryFlag, false); //anropar funktionen showOneButton
+newElButton.addEventListener ("click", showcountry, false); //anropar funktionen showcountre vid klick kattras
+newElButton.addEventListener ("click", showOneButton, false); //anropar funktionen showOneButton
+newElButton.addEventListener ("click", showCountryFlag, false); //anropar funktionen showOneButton
 
 
     //    catsEl.innerHTML += `<li id=${cat.country}><button id=${cat.country}>${cat.breed}<button></li>`
@@ -114,8 +132,8 @@ function filterData () {   //Funktion som gör att när man skriver så filtrera
 
 
      //console.log(catData);
-    
-       let catData=cats.data
+ 
+       let catData=cats
         console.log(catData);
 
 
@@ -123,7 +141,7 @@ function filterData () {   //Funktion som gör att när man skriver så filtrera
 let searchphrase = document.querySelector("#inputCat").value;  //värdet som skrivs i i sökfält
 
 let filteredData = catData.filter(cat => 
-    cat.breed.toLowerCase().includes(searchphrase.toLowerCase()) //filtreringsfunktion med avseende på kursnamn och kurskod
+    cat.name.toLowerCase().includes(searchphrase.toLowerCase()) //filtreringsfunktion med avseende på kursnamn och kurskod
     
 
 );
@@ -134,6 +152,20 @@ displayCat(filteredData) //anropar funktionen  displayCourses med filtreringsfun
 
 }  
 
+   
+
+//     / console.log(numberOfCatsEl.value);
+        
+//     //   catData.length=numberOfCatsEl.value
+
+
+
+
+
+
+
+
+
 let location = [];
 
  async function showcountry(e) {
@@ -141,7 +173,7 @@ let location = [];
  console.log(e.target.title);
 
 
-  try {const response = await fetch (`https://nominatim.openstreetmap.org/search?q=${e.target.title}&format=json`)
+  try {const response = await fetch (`https://nominatim.openstreetmap.org/search?q=${e.target.id}&format=json`)
      if (!response.ok){
          throw new Error ("Fel....")  
      }
@@ -168,10 +200,24 @@ catch (error){console.error(error)}
   let longitude = data[0].lon  //["lat"];
   console.log(longitude)
   
+  let country=data[0].name
 
-  map.flyTo(new L.LatLng(latitude, longitude), 7);
+//   map.flyTo(new L.LatLng(latitude, longitude), 7);
+ 
+ 
+ let map = L.map('map').setView([latitude, longitude],2);
 
+     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+     maxZoom: 19,
+     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+ }).addTo(map);
+
+
+  
   let marker = L.marker([latitude, longitude]).addTo(map);
+  marker.bindPopup("The cat is from " + country).openPopup();
+
+
 
 
  }
@@ -182,21 +228,36 @@ catch (error){console.error(error)}
  function showOneButton (e) {
 
     console.log(e.target.id);
+      console.log(e.target.class);
     
  let catsEl=document.getElementById("cats");
        catsEl.style.display='none' 
+        document.getElementById("inputCat").style.display='none'
+        document.getElementById("labelSearch").style.display='none'
+        document.getElementById("labelMax").style.display='none'
+        document.getElementById("numberOfCats").style.display='none'
 
        let oneCatEl=document.getElementById("oneCat")
        
        let newElH2 = document.createElement ("h2")
        let newElP = document.createElement ("p")
-       let newText=document.createTextNode (e.target.id)  
-       let newText2=document.createTextNode ("Kattrasen "+e.target.id+ " är ifrån "+e.target.title+".")  
+        let newText=document.createTextNode (e.target.className)  
+       let newText2=document.createTextNode (e.target.title)  
+//     let newElH3 = document.createElement ("h2")
+//        let newElP2 = document.createElement ("p")
+// let newText3=document.createTextNode ("Some information about the cat")  
+//       let newText4=document.createTextNode (e.target.title)  
 
+      e.target.title
         newElH2.appendChild(newText) 
         oneCatEl.appendChild(newElH2) 
          newElH2.appendChild(newElP) 
          newElP.appendChild(newText2)
+    // newElP.appendChild(newElH3)
+    //       newElH3.appendChild(newElP2)
+    //       newElP2.appendChild(newText3)
+
+    //     newElP2.appendChild(newText4)
 
         
     
@@ -206,26 +267,15 @@ catch (error){console.error(error)}
 
 
 
-async function showCountryFlag(){
+async function showCountryFlag(e){
 
-try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
+let url=`https://flagsapi.com/${e.target.id}/flat/64.png`
 
-    if (!response.ok){
-        throw new Error ("Fel....")  
-     }
-  cats = await response.json(); 
- 
-  
-  let catData=cats
-  
-  console.log(catData);
-             
-  displayFlag(catData);  
+   let flagEl=document.getElementById("flag");
 
 
+    flagEl.setAttribute('src', url)
 
-}
-  catch (error){console.error(error)}   
 
 
 
@@ -234,12 +284,9 @@ try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
 
 
 
-  function displayFlag(data)  {
-
-    
 
 
-  }
+
 
 
 

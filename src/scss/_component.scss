@@ -1,11 +1,23 @@
 // #button1 {
 
-#map { height: 400px; 
-width: 400px;}
+#map { height: 40em; 
+width: 60em;}
 // }
 
 
-#oneCat {
-    width: 200px;
-    height: 30px;
+// #oneCat {
+//     width: 200px;
+//     height: 30px;
+// }
+
+#cats li button {
+width: 12em;
+height: 4em;
+margin: 0.2em;
+
+}
+
+#inputCat{
+    width: 20em;
+    height: 1.5em;
 }

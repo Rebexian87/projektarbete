@@ -1,6 +1,33 @@
 @use "base";
 @use "layout";
 
+
+#cats li button:hover {
+    transform: skew(-10deg);    /*Text vrider sig*/
+    text-shadow: 8px 8px 8px rgba(0.5,0.5,0.5, 0.5); /*Text får skugga*/
+    font-weight: bold /*Text blir bold*/;
+      animation-name: colorButton;  /*namn på animering*/
+     animation-duration: 5s;   /*så här länga varar animeringen*/
+     animation-iteration-count: infinite; /*animeringen går hela tiden*/
+     animation-direction: alternate;/*animeringen går fram o tillbaka*/
+     width: 20em;
+    
+}
+ @keyframes colorButton {
+    0% {background-color: rgb(125, 125, 185);} /*bakgrundsfärg från början*/
+    40% {background-color: rgb(202, 137, 94);} /*bakgrundsfärg från början*/
+    60% {background-color: gold;} /*bakgrundsfärg från början*/
+    80% {background-color: rgb(149, 216, 149);} /*bakgrundsfärg från början*/
+    100% {background-color: rgb(162, 226, 235);} /*bakgrundsfärg från början*/
+   
+ }
+
+
+#labelSearch{
+   text-shadow: 8px 8px 8px rgba(0.5,0.5,0.5, 0.5); /*Text får skugga*/  
+   margin-right: 0.5em;
+}
+
 // #animeringh1 {  cursor: pointer;
 //     font-size: 50px;
 //     transition: 1s;}  /*Gör så att det blir en viss fördröjning nr man hovrar över text*/

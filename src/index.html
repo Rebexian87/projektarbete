@@ -46,11 +46,17 @@
         </nav>  
         </header>
 
-      
-    <h1 class="position2">Kattsidan</h1>
+      <section class="position2">
+    <h1>Information about cats</h1>
+    <p>Here you can press a button to see a bit of information about a cat. 
+        If you can't see the cat you are looking for change the number of cats you can see (max 68 cats). 
+        You can change the number of cats you see to 68 and search for a specifik cat. 
+        
+    </p>
+    </section>
         
     
-        <input class="position3" id="inputCat" type="text">
+        <div class="position3"><label id= "labelSearch" for="inputCat">Search: </label> <input  id="inputCat" type="text"></div>
         
         
        <!--<button id="button1">Klick</button> --> 
@@ -58,70 +64,34 @@
 
 
  <nav class="position4" id="mainnav">
-        <div class="position5" id="oneCat"></button>
+
+
+          <div id="showNumberOfCats">
+                        <label id= "labelMax" for="numberOfCats">Max antal: </label><input type="number" id="numberOfCats" value="10" min="1" max="200">
+                    </div>
         <ul id="cats"></ul>
+
         
 </nav>
 
-<!-- <div class="position5" id="oneCat"></button> -->
-
-
- <div class="position4_karta" id="map"></div>
-
-    <!-- <table>
-
-
-        
-    <thead>
-<tr>
-    <th id="code">Kurskod</th>
-    <th id="name" >Namn</th>
-    <th id="prog">Progression</th>
-        <th id="progs">Progression</th>
-            <th id="progd">Progression</th>
-</tr>
-    </thead>
-
-    <tbody id="cats">
-        <td></td>
-        <td></td>
-        <td></td>  
-    </tbody>
-
-    </table> -->
 
 
 
 
-    <!-- <section class="position3index"> 
 
-        <h2>Bild på fat</h2>
-        <picture>
-            <source srcset="images/fat.jpg?as=avif&width=300" type="image/avif" />
-            <source srcset="images/fat.jpg?as=webp&width=300" type="image/webp" />
-            <img class="picture1" src="images/fat.jpg?width=300" alt="fat med ansikte"/>
+
+ <div class="position6" id="oneCat"> </div>
+
+  <img id="flag"></img>
+ <div class="position5_karta" id="map"></div>
+ 
+
+ <!-- <div class="position7flag"><img id="flag"></img></div> -->
+
     
-        </picture>
-
-    </section>
-
-      innehåll med bild
-
-    <section class="position4index"> 
-        <h2>Bild på tomtebarn</h2>
-        <picture>
-            <source srcset="images/tomtebarn.jpg?as=avif&width=300" type="image/avif" />
-            <source srcset="images/tomtebarn.jpg?as=webp&width=300" type="image/webp" />
-            <img class="picture2" src="images/tomtebarn.jpg?width=300" alt="Tomtebarn"/>
-    
-        </picture>
-
-    </section> -->
-
-     <!--innehåll med bild-->
     
     <footer class="position10">
-       <p> DT211G, Datateknik GR, Frontend-baserad webbutveckling, Rebecca Smith (resm2400), 2025-03-12</p>
+       <p> DT211G, Datateknik GR, Frontend-baserad webbutveckling, Projektarbete, Rebecca Smith (resm2400), 2025-06-08</p>
 
         <!--sidfot-->
 

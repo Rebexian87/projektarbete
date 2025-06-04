@@ -128,9 +128,22 @@ newElButton.addEventListener ("click", showCountryFlag, false); //anropar funkti
     
     } 
 
-    let cutCatbuttonEl=document.getElementById("cuteCatButton")
-let cuteCatbuttonTextEl=document.createTextNode("Pictures of cats")
-cutCatbuttonEl.appendChild(cuteCatbuttonTextEl)
+
+
+    let aEl=document.getElementById("cuteCatButton")
+    let cutCatbuttonEl=document.createElement("button")
+    aEl.appendChild(cutCatbuttonEl)
+
+ let cuteCatbuttonTextEl=document.createTextNode("Pictures of cats")
+ cutCatbuttonEl.appendChild(cuteCatbuttonTextEl)
+
+// let aEl=document.createElement("a")
+ aEl.setAttribute('href', 'pictures.html' )
+// cutCatbuttonEl.appendChild(aEl)
+// aEl.appendChild(cuteCatbuttonTextEl)
+
+// let aEl2=document.getElementById("buttonStart")
+
 
 
         
@@ -270,9 +283,24 @@ catch (error){console.error(error)}
 
     //     newElP2.appendChild(newText4)
 
-        
-    
-           
+//             let aEl=document.getElementById("cuteCatButton")
+//     let cutCatbuttonEl=document.createElement("button")
+//     aEl.appendChild(cutCatbuttonEl)
+
+//  let cuteCatbuttonTextEl=document.createTextNode("Pictures of cats")
+//  cutCatbuttonEl.appendChild(cuteCatbuttonTextEl)
+
+// let aEl=document.createElement("a")
+//  aEl.setAttribute('href', 'pictures.html' )
+// cutCatbuttonEl.appendChild(aEl)
+// aEl.appendChild(cuteCatbuttonTextEl)
+
+let aEl2=document.getElementById("buttonStart")
+let buttonStartEl=document.createElement("button")
+aEl2.appendChild(buttonStartEl)
+let startButtonTextEl=document.createTextNode("Back to the front page")
+   buttonStartEl.appendChild(startButtonTextEl) 
+    aEl2.setAttribute('href', 'index.html' )         
 
  }
 

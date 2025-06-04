@@ -61,10 +61,12 @@
  }
 
  #cuteCatButton {
+
+    button {
     animation-name: cuteCatButAni;  /*namn på animering*/
      animation-duration: 5s;   /*så här länga varar animeringen*/
      animation-iteration-count: infinite; /*animeringen går hela tiden*/
-     animation-direction: alternate;/*animeringen går fram o tillbaka*/
+     animation-direction: alternate;/*animeringen går fram o tillbaka*/ }
  }
 
 
@@ -76,9 +78,21 @@
  }
 
 
- #flag {
-    
+ #flag:hover {
+        animation-name: flagAni;  /*namn på animering*/
+       animation-duration: 5s;   /*så här länga varar animeringen*/
+       animation-iteration-count: infinite; /*animeringen går hela tiden*/
+       animation-direction: alternate;/*animeringen går fram o tillbaka*/ 
+      
  }
+
+ 
+  @keyframes flagAni {
+ 
+    50% {scale: 150%}
+
+ }
+
 
 // #animeringh1 {  cursor: pointer;
 //     font-size: 50px;

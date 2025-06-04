@@ -16,7 +16,7 @@ function init () {
        getcatApi ()  //När sidan startar så anropas funktionen getcatApi
 
         document.querySelector("#inputCat").addEventListener("input", filterData); //händelsehanterar som händer när man börjar skriva in text i sökfält
-
+        document.getElementById("oneCat").style.display='none';
 
    
 }
@@ -107,6 +107,8 @@ newElButton.addEventListener ("click", showCountryFlag, false); //anropar funkti
 
 
 ); 
+
+
  
 // let buttons = catsEl.querySelectorAll ('cats');
 
@@ -125,6 +127,12 @@ newElButton.addEventListener ("click", showCountryFlag, false); //anropar funkti
 //<td>${cat.data.country}</td>  <td>${cat.data.origin}</td>  <td>${cat.data.coat}</td> <td>${cat.data.pattern}</td>`});
     
     } 
+
+    let cutCatbuttonEl=document.getElementById("cuteCatButton")
+let cuteCatbuttonTextEl=document.createTextNode("Pictures of cats")
+cutCatbuttonEl.appendChild(cuteCatbuttonTextEl)
+
+
         
 
 
@@ -229,13 +237,16 @@ catch (error){console.error(error)}
 
     console.log(e.target.id);
       console.log(e.target.class);
-    
+  
+            document.getElementById("oneCat").style.display='block';
  let catsEl=document.getElementById("cats");
        catsEl.style.display='none' 
         document.getElementById("inputCat").style.display='none'
         document.getElementById("labelSearch").style.display='none'
         document.getElementById("labelMax").style.display='none'
         document.getElementById("numberOfCats").style.display='none'
+        document.getElementById("cuteCat").style.display='none'
+            document.getElementById("cuteCatButton").style.display='none'
 
        let oneCatEl=document.getElementById("oneCat")
        

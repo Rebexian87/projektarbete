@@ -1,4 +1,5 @@
 // #button1 {
+@use "base";
 
 #map { height: 40em; 
 width: 60em;}
@@ -10,14 +11,45 @@ width: 60em;}
 //     height: 30px;
 // }
 
-#cats li button {
-width: 12em;
-height: 4em;
-margin: 0.2em;
+#cats { /*nestlad för att styla button*/
+    li {
 
+        list-style-type: none;
+        button {
+            width: 12em;
+            height: 4em;
+            margin: 0.2em;
+             background: base.$color-button1;
+        
+                }
+        }
 }
+
+
 
 #inputCat{
     width: 20em;
     height: 1.5em;
+}
+
+
+#cuteCatButton {
+    background: linear-gradient(45deg, gold, orangered);
+    margin-top: 12%;
+      width: 15em;
+    height: 4em;
+}
+
+#imgHeader{
+    max-width: 100%;
+    
+}
+
+#numberOfCats{
+    margin-bottom: 5%;
+    margin-left: 0.2em;
+}
+
+#labelMax{
+    margin-left: 3em;
 }

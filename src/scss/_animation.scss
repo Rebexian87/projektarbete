@@ -2,7 +2,9 @@
 @use "layout";
 
 
-#cats li button:hover {
+#cats {
+    li 
+    { button:hover {
     transform: skew(-10deg);    /*Text vrider sig*/
     text-shadow: 8px 8px 8px rgba(0.5,0.5,0.5, 0.5); /*Text får skugga*/
     font-weight: bold /*Text blir bold*/;
@@ -12,7 +14,9 @@
      animation-direction: alternate;/*animeringen går fram o tillbaka*/
      width: 20em;
     
-}
+}}}
+
+
  @keyframes colorButton {
     0% {background-color: rgb(125, 125, 185);} /*bakgrundsfärg från början*/
     40% {background-color: rgb(202, 137, 94);} /*bakgrundsfärg från början*/
@@ -27,6 +31,54 @@
    text-shadow: 8px 8px 8px rgba(0.5,0.5,0.5, 0.5); /*Text får skugga*/  
    margin-right: 0.5em;
 }
+
+#cuteCat {
+    
+
+    //   position: relative; 
+     animation-name: cuteCatAni;  /*namn på animering*/
+     animation-duration: 5s;   /*så här länga varar animeringen*/
+     animation-iteration-count: infinite; /*animeringen går hela tiden*/
+     animation-direction: alternate;/*animeringen går fram o tillbaka*/
+       
+}
+
+// .pictureOne:hover{
+
+// }
+
+ @keyframes cuteCatAni {
+    0% {background-color: gold;} /*bakgrundsfärg från början*/
+    10% {transform: skew(-5deg, -5deg)}
+    30% {background-color: orange;}  /*bakgrundsfärg från början*/
+    50% {scale: 120%}
+    60% {transform: skew(5deg, 5deg);background-color: orangered; } /*bakgrundsfärg från början*/
+    // 60% {background-color: orangered;}
+    80% {background-color: orange;}  /*bakgrundsfärg från början*/
+   100% {background-color: gold;} /*bakgrundsfärg från början*/
+
+  
+ }
+
+ #cuteCatButton {
+    animation-name: cuteCatButAni;  /*namn på animering*/
+     animation-duration: 5s;   /*så här länga varar animeringen*/
+     animation-iteration-count: infinite; /*animeringen går hela tiden*/
+     animation-direction: alternate;/*animeringen går fram o tillbaka*/
+ }
+
+
+  @keyframes cuteCatButAni {
+ 
+    50% {scale: 120%}
+
+  
+ }
+
+
+ #flag {
+    
+ }
 
 // #animeringh1 {  cursor: pointer;
 //     font-size: 50px;

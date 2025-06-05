@@ -83,7 +83,7 @@ function displayCat (catData) {
            let newText=document.createTextNode (cat.name)  
            newElButton.setAttribute('id', cat.country_code) 
            newElButton.setAttribute('title', cat.description)
-            newElButton.setAttribute('class', cat.name)
+            newElButton.setAttribute('class', cat.id)
               newElButton.appendChild(newText) 
            newElLi.appendChild(newElButton) 
            catsEl.appendChild(newElLi)
@@ -265,7 +265,7 @@ catch (error){console.error(error)}
        
        let newElH2 = document.createElement ("h2")
        let newElP = document.createElement ("p")
-        let newText=document.createTextNode (e.target.className)  
+        let newText=document.createTextNode (e.target.innerText)  
        let newText2=document.createTextNode (e.target.title)  
 //     let newElH3 = document.createElement ("h2")
 //        let newElP2 = document.createElement ("p")

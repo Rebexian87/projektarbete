@@ -26,6 +26,11 @@ cats=[]
 
 
 
+/**
+ * @async
+ * @function
+ * 
+ */
 async function getcatApi(){
 
 
@@ -54,29 +59,23 @@ try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
    let numberOfCatsEl = document.getElementById("numberOfCats")
       numberOfCatsEl.addEventListener("change", getcatApi)
 
+
+  
+
+    /**
+     * @function
+     * @param {*} catData 
+     */
 function displayCat (catData) {
 
      console.log(catData);
-
-    
-    //`<li><button>text<button></li>`
-       
-       let catsEl=document.getElementById("cats");
+         let catsEl=document.getElementById("cats");
        catsEl.innerHTML=""
-    // let numberOfCatsEl = document.getElementById("numberOfCats")
-    // numberOfCatsEl.addEventListener("change", )
 
-    // console.log(numberOfCatsEl.value);
         
        catData.length=numberOfCatsEl.value
       catData.forEach(cat => {  //Loopar igenom kstter
-        //  let newOptionEl= document.createElement ("option")   
-       
-        //  let newText=document.createtextContent(cat.name)
-        // newOptionEl.textContent=cat.name
-        //  newOptionEl.value= cat.name
-        //   catsEl.appendChild(newOptionEl)
-        //  newOptionEl.appendChild(newText)
+
 
            let newElLi= document.createElement ("li")   
            let newElButton = document.createElement ("button")
@@ -95,8 +94,17 @@ function displayCat (catData) {
 newElButton.addEventListener ("click", showcountry, false); //anropar funktionen showcountre vid klick kattras
 newElButton.addEventListener ("click", showOneButton, false); //anropar funktionen showOneButton
 newElButton.addEventListener ("click", showCountryFlag, false); //anropar funktionen showOneButton
+    // let numberOfCatsEl = document.getElementById("numberOfCats")
+    // numberOfCatsEl.addEventListener("change", )
 
-
+    // console.log(numberOfCatsEl.value);
+        //  let newOptionEl= document.createElement ("option")   
+       
+        //  let newText=document.createtextContent(cat.name)
+        // newOptionEl.textContent=cat.name
+        //  newOptionEl.value= cat.name
+        //   catsEl.appendChild(newOptionEl)
+        //  newOptionEl.appendChild(newText)
     //    catsEl.innerHTML += `<li id=${cat.country}><button id=${cat.country}>${cat.breed}<button></li>`
         // let catsElEl=catsEl.innerHTML
         //  catsElEl.setAttribut=("id", cat.country)
@@ -260,6 +268,8 @@ catch (error){console.error(error)}
         document.getElementById("numberOfCats").style.display='none'
         document.getElementById("cuteCat").style.display='none'
             document.getElementById("cuteCatButton").style.display='none'
+             document.getElementById("infoText").style.display='none'
+            
 
        let oneCatEl=document.getElementById("oneCat")
        

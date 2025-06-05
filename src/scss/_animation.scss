@@ -93,6 +93,43 @@
 
  }
 
+ #catSelect:hover {
+            animation-name: flagAni;  /*namn på animering*/
+       animation-duration: 5s;   /*så här länga varar animeringen*/
+       animation-iteration-count: infinite; /*animeringen går hela tiden*/
+       animation-direction: alternate;/*animeringen går fram o tillbaka*/ 
+ }
+
+ 
+ #catSelect4:hover {
+            animation-name: flagAni;  /*namn på animering*/
+       animation-duration: 5s;   /*så här länga varar animeringen*/
+       animation-iteration-count: infinite; /*animeringen går hela tiden*/
+       animation-direction: alternate;/*animeringen går fram o tillbaka*/ 
+ }
+
+
+ #catSelect2:hover {
+        animation-name: catSelect2Ani;  /*namn på animering*/
+       animation-duration: 5s;   /*så här länga varar animeringen*/
+       animation-iteration-count: infinite; /*animeringen går hela tiden*/
+       animation-direction: alternate;/*animeringen går fram o tillbaka*/ 
+      
+ }
+
+ 
+ #catSelect3:hover {
+        animation-name: catSelect2Ani;  /*namn på animering*/
+       animation-duration: 5s;   /*så här länga varar animeringen*/
+       animation-iteration-count: infinite; /*animeringen går hela tiden*/
+       animation-direction: alternate;/*animeringen går fram o tillbaka*/ 
+      
+ }
+
+ @keyframes catSelect2Ani {
+  50% {transform: skew(5deg, 5deg)}
+
+ }
 
 // #animeringh1 {  cursor: pointer;
 //     font-size: 50px;

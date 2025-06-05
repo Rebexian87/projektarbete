@@ -11,6 +11,19 @@ width: 60em;}
 //     height: 30px;
 // }
 
+
+@mixin border ($color, $size, $radius) {  /*Mixin för ram runt paragrafer. If-sats  ifall man vill ha en border-radius eller inte. */
+    border-color: $color;
+    border-width: $size;
+    border-style: solid;
+    padding:2%; 
+      @if $radius {
+        border-radius: 15%;}
+
+}
+
+    //@include border
+
 #cats { /*nestlad för att styla button*/
     li {
 
@@ -63,4 +76,23 @@ width: 60em;}
               width: 15em;
     height: 4em;
     }
+}
+
+#catSelect {
+max-width: 90%;
+@include border(base.$primary-color, 3px, false)
+}
+#catSelect2 {
+max-width: 90%;
+@include border(base.$primary-color, 3px, true)
+}
+
+#catSelect3 {
+max-width: 90%;
+@include border(base.$primary-color, 3px, true)
+}
+
+#catSelect4 {
+max-width: 90%;
+@include border(base.$primary-color, 3px, false)
 }

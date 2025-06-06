@@ -5,10 +5,10 @@
 
 /*mina variabler*/
 $primary-color: rgb(108, 70, 211); 
-$darken-color:darken($primary-color, 20%);
+// $darken-color:darken($primary-color, 20%);
 
 $text-color:blue;
-$text-color-dark:rgb(223, 163, 186);
+$text-color-dark: rgb(196, 186, 226); 
 $text-color-header:white;
 $font-stack: sans-serif;
 $background-color: lighten($primary-color, 40%);

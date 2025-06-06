@@ -171,8 +171,8 @@ nav {
     .position3 {
             grid-area: 3/1/4/-1;
             @extend %margin-msg;  /*använder inheritans för marginal*/
-            margin-left: 5vh;
-            margin-right: 5vh;
+            margin-left: 2vh;
+            margin-right: 2vh;
          }
 
         
@@ -214,26 +214,33 @@ nav {
             margin-bottom: 5%;
         }
 
-@include mobileMax {
-       .position6pictures {
-            grid-area: 7/1/8/-1; 
-            margin: auto;
-        }
-             .position7pictures {
-            grid-area: 8/1/9/-1; 
-            margin: auto;
+// @include mobileMax {
+//        .position6pictures {
+//             grid-area: 7/1/8/-1; 
+//             margin: auto;
+//         }
+//              .position7pictures {
+//             grid-area: 8/1/9/-1; 
+//             margin: auto;
 
-        }
+//         }
 
-                 .position8pictures {
-            grid-area: 9/1/10/-1; 
-            margin: auto;
-        }
-                 .position9pictures {
-            grid-area: 10/1/11/-1; 
-            margin: auto;
-        }
-}
+//                  .position8pictures {
+//             grid-area: 9/1/10/-1; 
+//             margin: auto;
+//         }
+//                  .position9pictures {
+//             grid-area: 10/1/11/-1; 
+//             margin: auto;
+//         }
+
+//             .position8 {
+//         grid-area: 6/1/7/-1;
+//         margin:5%;
+//         margin-top: 10%;
+
+//     }
+// }
 
     // #labelSearch{
     //    margin-left: 10vh;  
@@ -252,17 +259,53 @@ nav {
 
     }
 
+
+    @include mobileMax {
+       .position6pictures {
+            grid-area: 7/1/8/-1; 
+            margin: auto;
+        }
+             .position7pictures {
+            grid-area: 8/1/9/-1; 
+            margin: auto;
+
+        }
+
+                 .position8pictures {
+            grid-area: 9/1/10/-1; 
+            margin: auto;
+        }
+                 .position9pictures {
+            grid-area: 10/1/11/-1; 
+            margin: auto;
+        }
+
+            .position8 {
+        grid-area: 6/1/7/-1;
+        margin:5%;
+        margin-top: 10%;
+
+    }
+}
+
     @include tablet1{
-           .position8 { grid-area: 5/8/6/-1;
+           .position8 { grid-area: 5/10/6/-1;
         margin:5%;
         margin-top: 10%; 
+
+      .position3 {
+            // grid-area: 3/1/4/-1;
+          margin-left: 2px;
+         }
+
+
            }
     }
 
 
         .position5_karta {
-        grid-area: 6/3/7/-1;
-        margin:5%
+        grid-area: 6/1/7/-1;
+        margin:auto
 
     }
 

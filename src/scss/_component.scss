@@ -22,7 +22,14 @@ width: 60em;}
 
 }
 
+
+ @mixin fonts ($size, $height) {  /*Mixin för fontsize och lineheight som används till h1, h2, p senare */
+ font-size: $size;
+ line-height: $height; }
+
     //@include border
+
+    button {@include fonts (1.4em, 120%); font-family: base.$font-stack;   cursor: pointer;    }
 
 #cats { /*nestlad för att styla button*/
     li {
@@ -67,7 +74,22 @@ width: 60em;}
 }
 
 #labelMax{
-    margin-left: 3em;
+    margin-left: 2.6em;
+    @include fonts (1.6em, 120%); font-family: base.$font-stack; 
+}
+
+#numberOfCats {
+   @include fonts (1.6em, 120%); font-family: base.$font-stack;  
+}
+
+#labelSearch{
+   @include fonts (1.6em, 120%); font-family: base.$font-stack;   
+    margin-left: 10vh;  
+}
+
+#inputCat{
+    width: 18em;
+    height: 2.4em;
 }
 
 #buttonStart {
@@ -95,4 +117,15 @@ max-width: 90%;
 #catSelect4 {
 max-width: 90%;
 @include border(base.$primary-color, 3px, false)
+}
+
+#catsSelect {
+    height: 2em;
+    width: 15em;
+       @include fonts (1.6em, 120%); font-family: base.$font-stack;  
+       margin-left: 2%; 
+}
+
+#kittenCoconut{
+    max-width: 100%;
 }

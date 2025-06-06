@@ -60,7 +60,7 @@ function displayCat(catsList)
           catsSelectEl.appendChild(newOptionEl)
 
            newOptionEl.addEventListener("click", readpicture)
-           newOptionEl.addEventListener("click", showName)
+          //  newOptionEl.addEventListener("click", showName)
 
         //  newOptionEl.appendChild(newText)
 
@@ -147,6 +147,9 @@ let catsPic=[]
     // catFact1H2.appendChild(catFactP)
     // catFactP.appendChild(catFactText2)
 
+    document.getElementById("kittenCoconut").style.display='none'
+      document.getElementById("pictureH").style.display='none'
+
       let catSelectEl=document.getElementById("catSelect")
       catSelectEl.setAttribute('src', catsPic[0].url)
      let catSelectEl2=document.getElementById("catSelect2")
@@ -158,19 +161,19 @@ let catsPic=[]
 
     }
 
-    function showName(e) {
+    // function showName(e) {
    
-    let catNameEl=document.getElementById("catName1")
-      catNameEl.innerHTML=""
-    let catNameH2=document.createElement("H2")
-    // let catFactP=document.createElement("P")
-     let catNameText1=document.createTextNode(e.target.value)
-    // let catFactText2=document.createTextNode(e.target.className)
-    catNameEl.appendChild(catNameH2)
-    catNameH2.appendChild(catNameText1)
+    // let catNameEl=document.getElementById("catName1")
+    //   catNameEl.innerHTML=""
+    // let catNameH2=document.createElement("H2")
+    // // let catFactP=document.createElement("P")
+    //  let catNameText1=document.createTextNode(e.target.value)
+    // // let catFactText2=document.createTextNode(e.target.className)
+    // catNameEl.appendChild(catNameH2)
+    // catNameH2.appendChild(catNameText1)
 
 
-    }
+    // }
 
 //     let fact=[]
 

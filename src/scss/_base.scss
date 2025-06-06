@@ -6,7 +6,7 @@
 /*mina variabler*/
 $primary-color: rgb(108, 70, 211); 
 $darken-color:darken($primary-color, 20%);
-$secundary-color: rgb(144, 207, 144);
+
 $text-color:blue;
 $text-color-dark:rgb(223, 163, 186);
 $text-color-header:white;
@@ -16,7 +16,8 @@ $background-color-dark: rgb(48, 45, 45);
 $color-button1: rgb(247, 180, 56);
 
 
-
+$tablet1: 1100px;
 $tablet: 850px;
+$mobile: 500px;
 
 

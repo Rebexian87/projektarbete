@@ -131,7 +131,17 @@
 
  }
 
+#kittenCoconut{
+       animation-name: catCoconut;  /*namn på animering*/
+       animation-duration: 16s;   /*så här länga varar animeringen*/
+       animation-iteration-count: infinite; /*animeringen går hela tiden*/
+       animation-direction: alternate;/*animeringen går fram o tillbaka*/ 
+}
 
+@keyframes catCoconut{
+ 
+     50% {transform: rotatey(180deg)}
+}
 
 // #animeringh1 {  cursor: pointer;
 //     font-size: 50px;

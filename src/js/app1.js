@@ -1,11 +1,24 @@
+"use strict"
+
+
 window.onload = init;
+
+
 function init () {
        getcatApi ()  //När sidan startar så anropas funktionen getcatApi
        }
 
 let catsList= []
 
-       async function getcatApi(){
+
+
+/**
+ * @async
+ * @function
+ * @throws {Error} -Om vi inte får någon data
+ * @returns {Promise|catsList}   - Datan som vi får från url
+ */
+async function getcatApi(){
 
 
 try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
@@ -30,24 +43,27 @@ function displayCat(catsList)
        
        let catsSelectEl=document.getElementById("catsSelect");
        catsSelectEl.innerHTML=""
- 
+        /**
+         * Läsar in data från API och loopar igenom den så vi kan få fram olika element och attribut
+         * @param {any[]} cat 
+         */
         catsList.forEach(cat => {  //Loopar igenom kstter
           let newOptionEl= document.createElement ("option")  
-           newOptionEl.value= cat.name 
+           newOptionEl.value=cat.id
            newOptionEl.textContent=cat.name
            newOptionEl.setAttribute('id', cat.id)
            newOptionEl.setAttribute('class', cat.temperament)
            catsSelectEl.appendChild(newOptionEl)
-
-           newOptionEl.addEventListener("click", readpicture)
-     
+           catsSelectEl.addEventListener("change", readpicture)
     } 
 ); 
     } 
 
 let catsPic=[]
    async function readpicture  (e){
-            try {const response = await fetch (`https://api.thecatapi.com/v1/images/search?limit=4&breed_ids=${e.target.id}`);
+    console.log(e.target.value);
+    
+            try {const response = await fetch (`https://api.thecatapi.com/v1/images/search?limit=4&breed_ids=${e.target.value}`);
 
     if (!response.ok){
         throw new Error ("Fel....")  

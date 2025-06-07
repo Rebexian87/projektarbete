@@ -1,30 +1,17 @@
 "use strict"
 
-//  let map = L.map('map').setView([51.505, -0.09],2);
-
-//      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//      maxZoom: 19,
-//      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-//  }).addTo(map);
-
-// let button1El=document.getElementById("button1")
-// button1El.addEventListener("click", getcatApi);
-
-
 window.onload = init;
+
 function init () {
        getcatApi ()  //När sidan startar så anropas funktionen getcatApi
-
         document.querySelector("#inputCat").addEventListener("input", filterData); //händelsehanterar som händer när man börjar skriva in text i sökfält
         document.getElementById("oneCat").style.display='none';
-
-   
+  
 }
-
-cats=[]
-
-
-
+/**
+ * 
+ */
+let cats=[]
 
 /**
  * @async
@@ -55,12 +42,16 @@ try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
   catch (error){console.error(error)}   
 }
 
-
+/**
+ * 
+ */
    let numberOfCatsEl = document.getElementById("numberOfCats")
-      numberOfCatsEl.addEventListener("change", getcatApi)
+   /**
+    * 
+    */
+   numberOfCatsEl.addEventListener("change", getcatApi)
 
-
-  
+ 
 
     /**
      * @function
@@ -74,7 +65,7 @@ function displayCat (catData) {
 
         
        catData.length=numberOfCatsEl.value
-      catData.forEach(cat => {  //Loopar igenom kstter
+      catData.forEach(cat => {  //Loopar igenom katter
 
 
            let newElLi= document.createElement ("li")   
@@ -82,121 +73,57 @@ function displayCat (catData) {
            let newText=document.createTextNode (cat.name)  
            newElButton.setAttribute('id', cat.country_code) 
            newElButton.setAttribute('title', cat.description)
-            newElButton.setAttribute('class', cat.id)
-              newElButton.appendChild(newText) 
+           newElButton.setAttribute('class', cat.id)
+           newElButton.appendChild(newText) 
            newElLi.appendChild(newElButton) 
            catsEl.appendChild(newElLi)
-
-          
-
-
-
-newElButton.addEventListener ("click", showcountry, false); //anropar funktionen showcountre vid klick kattras
-newElButton.addEventListener ("click", showOneButton, false); //anropar funktionen showOneButton
-newElButton.addEventListener ("click", showCountryFlag, false); //anropar funktionen showOneButton
-    // let numberOfCatsEl = document.getElementById("numberOfCats")
-    // numberOfCatsEl.addEventListener("change", )
-
-    // console.log(numberOfCatsEl.value);
-        //  let newOptionEl= document.createElement ("option")   
-       
-        //  let newText=document.createtextContent(cat.name)
-        // newOptionEl.textContent=cat.name
-        //  newOptionEl.value= cat.name
-        //   catsEl.appendChild(newOptionEl)
-        //  newOptionEl.appendChild(newText)
-    //    catsEl.innerHTML += `<li id=${cat.country}><button id=${cat.country}>${cat.breed}<button></li>`
-        // let catsElEl=catsEl.innerHTML
-        //  catsElEl.setAttribut=("id", cat.country)
-
-    //   catsEl.innerHTML.addEventListener("click", showpicture)
+    
+    newElButton.addEventListener ("click", showcountry, false); //anropar funktionen showcountre vid klick kattras
+    newElButton.addEventListener ("click", showOneButton, false); //anropar funktionen showOneButton
+    newElButton.addEventListener ("click", showCountryFlag, false); //anropar funktionen showOneButton
     }
   
-
-
-); 
-
-
- 
-// let buttons = catsEl.querySelectorAll ('cats');
-
-// buttons.forEach (button => {
-//  button.addEventListener("click", showpicture)
-
-// })
-
-
-//     button1El=document.getElementById("button1");
-// button1El.addEventListener("click", showpicture)
-    //    let catsElLi=catsEl.innerHTML;
-    //      catsElLi
-   
-
-//<td>${cat.data.country}</td>  <td>${cat.data.origin}</td>  <td>${cat.data.coat}</td> <td>${cat.data.pattern}</td>`});
-    
+);   
     } 
-
-
 
     let aEl=document.getElementById("cuteCatButton")
     let cutCatbuttonEl=document.createElement("button")
     aEl.appendChild(cutCatbuttonEl)
 
- let cuteCatbuttonTextEl=document.createTextNode("Pictures of cats")
- cutCatbuttonEl.appendChild(cuteCatbuttonTextEl)
+    let cuteCatbuttonTextEl=document.createTextNode("Pictures of cats")
+    cutCatbuttonEl.appendChild(cuteCatbuttonTextEl)
 
-// let aEl=document.createElement("a")
- aEl.setAttribute('href', 'pictures.html' )
-// cutCatbuttonEl.appendChild(aEl)
-// aEl.appendChild(cuteCatbuttonTextEl)
+    aEl.setAttribute('href', 'pictures.html' )
 
-// let aEl2=document.getElementById("buttonStart")
+    
 
-
-
-        
-
-
+/**
+ * 
+ */
 function filterData () {   //Funktion som gör att när man skriver så filtreras datan i tabellen till det man skriver . 
 
-
-     //console.log(catData);
- 
-       let catData=cats
-        console.log(catData);
-
-
-
+let catData=cats
 let searchphrase = document.querySelector("#inputCat").value;  //värdet som skrivs i i sökfält
 
 let filteredData = catData.filter(cat => 
     cat.name.toLowerCase().includes(searchphrase.toLowerCase()) //filtreringsfunktion med avseende på kursnamn och kurskod
     
-
 );
 displayCat(filteredData) //anropar funktionen  displayCourses med filtreringsfunktion
 
-
-
-
 }  
 
-   
 
-//     / console.log(numberOfCatsEl.value);
-        
-//     //   catData.length=numberOfCatsEl.value
-
-
-
-
-
-
-
-
-
+/**
+ * 
+ */
 let location = [];
 
+
+/**
+ * 
+ * @param {*} e 
+ */
  async function showcountry(e) {
   
  console.log(e.target.title);
@@ -209,20 +136,18 @@ let location = [];
  location = await response.json();   
 
  displayPlace(location)
-          
-
  
 }
+
 catch (error){console.error(error)}   
 
  }
-
+/**
+ * 
+ * @param {*} data 
+ */
  function displayPlace (data) {
-
-      
-
-
- 
+    
   let latitude = data[0].lat  //["lat"];
   console.log(latitude);
 
@@ -230,9 +155,6 @@ catch (error){console.error(error)}
   console.log(longitude)
   
   let country=data[0].name
-
-//   map.flyTo(new L.LatLng(latitude, longitude), 7);
- 
  
  let map = L.map('map').setView([latitude, longitude],2);
 
@@ -253,81 +175,57 @@ catch (error){console.error(error)}
 
 
 
-
+/**
+ * 
+ * @param {*} e 
+ */
  function showOneButton (e) {
 
     console.log(e.target.id);
       console.log(e.target.class);
   
-            document.getElementById("oneCat").style.display='block';
- let catsEl=document.getElementById("cats");
-       catsEl.style.display='none' 
+        document.getElementById("oneCat").style.display='block';
+        let catsEl=document.getElementById("cats");
+        catsEl.style.display='none' 
         document.getElementById("inputCat").style.display='none'
         document.getElementById("labelSearch").style.display='none'
         document.getElementById("labelMax").style.display='none'
         document.getElementById("numberOfCats").style.display='none'
         document.getElementById("cuteCat").style.display='none'
-            document.getElementById("cuteCatButton").style.display='none'
-             document.getElementById("infoText").style.display='none'
+        document.getElementById("cuteCatButton").style.display='none'
+        document.getElementById("infoText").style.display='none'
             
 
-       let oneCatEl=document.getElementById("oneCat")
-       
+       let oneCatEl=document.getElementById("oneCat")       
        let newElH2 = document.createElement ("h2")
        let newElP = document.createElement ("p")
-        let newText=document.createTextNode (e.target.innerText)  
+       let newText=document.createTextNode (e.target.innerText)  
        let newText2=document.createTextNode (e.target.title)  
-//     let newElH3 = document.createElement ("h2")
-//        let newElP2 = document.createElement ("p")
-// let newText3=document.createTextNode ("Some information about the cat")  
-//       let newText4=document.createTextNode (e.target.title)  
-
-      e.target.title
+ 
         newElH2.appendChild(newText) 
         oneCatEl.appendChild(newElH2) 
-         newElH2.appendChild(newElP) 
-         newElP.appendChild(newText2)
-    // newElP.appendChild(newElH3)
-    //       newElH3.appendChild(newElP2)
-    //       newElP2.appendChild(newText3)
-
-    //     newElP2.appendChild(newText4)
-
-//             let aEl=document.getElementById("cuteCatButton")
-//     let cutCatbuttonEl=document.createElement("button")
-//     aEl.appendChild(cutCatbuttonEl)
-
-//  let cuteCatbuttonTextEl=document.createTextNode("Pictures of cats")
-//  cutCatbuttonEl.appendChild(cuteCatbuttonTextEl)
-
-// let aEl=document.createElement("a")
-//  aEl.setAttribute('href', 'pictures.html' )
-// cutCatbuttonEl.appendChild(aEl)
-// aEl.appendChild(cuteCatbuttonTextEl)
+        newElH2.appendChild(newElP) 
+        newElP.appendChild(newText2)
+  
 
 let aEl2=document.getElementById("buttonStart")
 let buttonStartEl=document.createElement("button")
 aEl2.appendChild(buttonStartEl)
 let startButtonTextEl=document.createTextNode("Back to the front page")
    buttonStartEl.appendChild(startButtonTextEl) 
-    aEl2.setAttribute('href', 'index.html' )         
+    aEl2.setAttribute('href', 'index.html' )        
 
  }
-
-
-
+/**
+ * 
+ * @param {*} e 
+ */
 async function showCountryFlag(e){
 
 let url=`https://flagsapi.com/${e.target.id}/flat/64.png`
 
    let flagEl=document.getElementById("flag");
-
-
-    flagEl.setAttribute('src', url)
-
-
-
-
+   flagEl.setAttribute('src', url)
 }
 
 

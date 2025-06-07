@@ -4,62 +4,54 @@
 #map { height: 40em; 
 width: 60em;
 max-width: 100%;}
-// }
 
 
-// #oneCat {
-//     width: 200px;
-//     height: 30px;
-// }
-
-
-@mixin border ($color, $size, $radius) {  /*Mixin för ram runt paragrafer. If-sats  ifall man vill ha en border-radius eller inte. */
+@mixin border ($color, $size, $radius) {  /*Mixin för ram runt paragrafer. If-sats ifall man vill ha en border-radius eller inte. */
     border-color: $color;
     border-width: $size;
     border-style: solid;
     padding:2%; 
       @if $radius {
         border-radius: 15%;}
-
 }
 
 
- @mixin fonts ($size, $height) {  /*Mixin för fontsize och lineheight som används till h1, h2, p senare */
- font-size: $size;
- line-height: $height; }
+ @mixin fonts ($size, $height) {  /*Mixin för fontsize och lineheight som används till button med mera*/
+    font-size: $size;
+    line-height: $height; }
 
-    //@include border
+    
 
-    button {@include fonts (1.4em, 120%); font-family: base.$font-stack;   cursor: pointer;    }
+button {@include fonts (1.4em, 120%); font-family: base.$font-stack;  cursor: pointer; } /*Använder mixin för fonts. Skapar en hand över alla knappar*/
+
 
 #cats { /*nestlad för att styla button*/
     li {
 
         list-style-type: none;
+
         button {
             width: 12em;
             height: 4em;
             margin: 0.2em;
-             background: base.$color-button1;
-        
-                }
+            background: base.$color-button1;       /*hämtar färg från variabel*/ 
+            }
         }
 }
 
 
-
-#inputCat{
+#inputCat{ 
     width: 20em;
-    height: 1.5em;
+    height: 1.5em; 
 }
 
 
 #cuteCatButton {
 
     button {
-    background: linear-gradient(45deg, gold, orangered);
+    background: linear-gradient(45deg, gold, orangered); /*Skapar en effekt av att färgen ändra över knappens*/
     margin-top: 12%;
-      width: 15em;
+    width: 15em;
     height: 4em;
     }
 }
@@ -76,15 +68,15 @@ max-width: 100%;}
 
 #labelMax{
     margin-left: 2.6em;
-    @include fonts (1.6em, 120%); font-family: base.$font-stack; 
+    @include fonts (1.6em, 120%); font-family: base.$font-stack; /*Använder mixin för fonts. Variabel för font-family*/
 }
 
 #numberOfCats {
-   @include fonts (1.6em, 120%); font-family: base.$font-stack;  
+   @include fonts (1.6em, 120%); font-family: base.$font-stack;  /*Använder mixin för fonts. Variabel för font-family*/
 }
 
 #labelSearch{
-   @include fonts (1.6em, 120%); font-family: base.$font-stack;   
+   @include fonts (1.6em, 120%); font-family: base.$font-stack;   /*Använder mixin för fonts. Variabel för font-family*/
     margin-left: 10vh;  
 }
 
@@ -95,36 +87,36 @@ max-width: 100%;}
 
 #buttonStart {
     button {
-         background: linear-gradient(45deg, rgb(143, 64, 235), rgb(204, 152, 191));
-              width: 15em;
-    height: 4em;
+        background: linear-gradient(45deg, rgb(143, 64, 235), rgb(204, 152, 191)); /*Skapar en effekt av att färgen ändra över knappens*/
+        width: 15em;
+        height: 4em;
     }
 }
 
 #catSelect {
-max-width: 90%;
-@include border(base.$primary-color, 3px, false)
+    max-width: 90%;
+    @include border(base.$primary-color, 3px, false) /*Använder mixin för border. Variabel för färg*/
 }
 #catSelect2 {
-max-width: 90%;
-@include border(base.$primary-color, 3px, true)
+    max-width: 90%;
+    @include border(base.$primary-color, 3px, true) /*Använder mixin för border. Variabel för färg*/
 }
 
 #catSelect3 {
-max-width: 90%;
-@include border(base.$primary-color, 3px, true)
+    max-width: 90%;
+    @include border(base.$primary-color, 3px, true) /*Använder mixin för border. Variabel för färg*/
 }
 
 #catSelect4 {
-max-width: 90%;
-@include border(base.$primary-color, 3px, false)
-}
+    max-width: 90%;
+    @include border(base.$primary-color, 3px, false) /*Använder mixin för border. Variabel för färg*/
+} 
 
 #catsSelect {
     height: 2em;
     width: 15em;
-       @include fonts (1.6em, 120%); font-family: base.$font-stack;  
-       margin-left: 2%; 
+    @include fonts (1.6em, 120%); font-family: base.$font-stack;  /*Använder mixin för fonts. Variabel för font-family*/
+    margin-left: 2%; 
 }
 
 #kittenCoconut{

@@ -8,55 +8,29 @@
     }
 } 
 
-@mixin mobileMax { /*Mixin för mediaqueries, minwidth*/
+@mixin mobileMax { /*Mixin för mediaqueries, maxwidth*/
     @media(max-width: base.$mobile) {
         @content;
     }
 } 
 
 
-@mixin tablet1 { /*Mixin för mediaqueries, minwidth*/
-    @media(min-width: base.$tablet1) {
+@mixin tablet1 { /*Mixin för mediaqueries, maxwidth*/
+    @media(max-width: base.$tablet1) {
         @content;
     }
 } 
-// @mixin tabletmax { /*Mixin för mediaqueries, maxwidth*/
-//     @media(max-width: base.$tablet) {
-//         @content;
-//     }
-// } 
 
-
-
-//  %picture-msg { /*border runt picture*/
-//     border: orange 5px solid;
-//     border-radius: 50%;
-// }
 
  %margin-msg { /*marginaler som används flera gånger i griden inlagd som inheritance*/
      margin:auto;
      margin-top: 5%;
-       }
+}
 
 
-// .picture1 { /*använder   %picture-msg*/
-//     @extend %picture-msg; }
-
-
-// .picture2 { /*använder   %picture-msg*/
-//      @extend %picture-msg;
-//      border-color: blue; }
-
-
-
-
- @mixin fonts ($size, $height) {  /*Mixin för fontsize och lineheight som används till h1, h2, p senare */
- font-size: $size;
- line-height: $height; }
-
-
-
-
+ @mixin fonts ($size, $height) {  /*Mixin för fontsize och lineheight som används till h1, h2 med mera */
+    font-size: $size;
+    line-height: $height; }
 
 
 body {  background-color: base.$background-color;    /*bakgrundfärg från varibel*/
@@ -65,12 +39,12 @@ body {  background-color: base.$background-color;    /*bakgrundfärg från varib
                  
         }
 
-        h1 {@include fonts(2em, 120% );}    /*använder mixin för fonts*/
-        h2 {@include fonts(1.8em, 120% );
+        h1 {@include fonts(2em, 120% );}      /*använder mixin för fonts*/
+        h2 {@include fonts(1.8em, 120% );     /*använder mixin för fonts*/
         margin-bottom: 3%}
-        p {@include fonts(1.6em, 120% );}
+        p {@include fonts(1.6em, 120% );}     /*använder mixin för fonts*/
         #pictureH { 
-        @include fonts(3em, 120% );
+        @include fonts(3em, 120% );           /*använder mixin för fonts*/
         text-align: center;
 
         }
@@ -87,81 +61,46 @@ body {  background-color: base.$background-color;    /*bakgrundfärg från varib
     
 
 header {       /*meny, använder nesting*/
-    height: 80px;
-    background-color: base.$primary-color;   /*bakgrundsfärg från variabel*/
-    position: relative;
-    padding: 0 1em;
-    justify-content: space-between;
-    align-items: center;
-      position: static;
+        height: 80px;
+        background-color: base.$primary-color;   /*bakgrundsfärg från variabel*/
+        position: relative;
+        padding: 0 1em;
+        justify-content: space-between;
+        align-items: center;
+        position: static;
         display: flex;
 
-nav {
-
-        
-            font-size: 1.4em;
-
-               li {
-
-            display: inline;
-            // padding: 1.2em 0;
-         }
-        
+nav {    
+        font-size: 1.4em;
+    li {
+        display: inline;
+           
+         }       
 
     a {
         display: block;
         padding: 6px 12px;
         text-decoration: none;
         color: base.$text-color-header; /*textfärg från variabel*/
-                display: inline;
+        display: inline;
     }
 }}
 
-
-
-  
- 
-    
-
-
-
-
-
-
-
-
-
-     .grid-container {    /*definiera grid*/
+     .grid-container {    /*definierar grid*/
          display: grid;
          grid-template-columns: repeat(16, 1fr);
-         grid-template-rows: repeat(10, auto);
+         grid-template-rows: repeat(12, auto);
          max-width: 1512px;} 
     
      .position1 {
-              grid-area: 1/1/2/-1;
-           }
-
-             
+         grid-area: 1/1/2/-1;
+    }
         
-    
-
-
-
-
     .position10 {
         margin-top: 10%;
         grid-area: 12/1/13/-1; 
         margin-left: 2%;
     }
-
-
- 
-
-    // @include tabletmax { /*mixin/mediaquerias för tabletmax*/
-
-     // }
-
-
 
     .position2 {
          grid-area: 2/1/3/-1; 
@@ -169,94 +108,64 @@ nav {
 
 
     .position3 {
-            grid-area: 3/1/4/-1;
-            @extend %margin-msg;  /*använder inheritans för marginal*/
-            margin-left: 2vh;
-            margin-right: 2vh;
-         }
+        grid-area: 3/1/4/-1;
+        @extend %margin-msg;  /*använder inheritans för marginal*/
+        margin-left: 2vh;
+        margin-right: 2vh;
+    }
 
         
-      .position4 {
+    .position4 {
         grid-area: 4/1/5/-1;
-      margin-top: 4vh;
-      margin-left: 4vh;
+        margin-top: 4vh;
+        margin-left: 4vh;
 
     }
 
-        .position4pictures {
-            grid-area: 4/1/5/-1; 
-            margin-bottom: 5%;
-        }
+    .position4pictures {
+        grid-area: 4/1/5/-1; 
+        margin-bottom: 5%;
+    }
 
-        .position5pictures {
-            grid-area: 5/1/6/-1; 
-        }
+    .position5pictures {
+        grid-area: 5/1/6/-1; 
+    }
 
-               .position8pictures {
-            grid-area: 6/1/7/-1; 
-        }
-           .position6pictures {
-            grid-area: 7/1/8/9; 
-        }
-             .position7pictures {
-            grid-area: 7/9/8/-1; 
-        }
+    .position8pictures {
+        grid-area: 6/1/7/-1; 
+    }
 
-                 .position8pictures {
-            grid-area: 8/1/9/9; 
-        }
-                 .position9pictures {
-            grid-area: 8/9/9/-1; 
-        }
+    .position6pictures {
+        grid-area: 7/1/8/9; 
+    }
 
-            .position10pictures {
-            grid-area: 5/1/6/-1; 
-            margin-bottom: 5%;
-        }
+    .position7pictures {
+        grid-area: 7/9/8/-1; 
+    }
 
-// @include mobileMax {
-//        .position6pictures {
-//             grid-area: 7/1/8/-1; 
-//             margin: auto;
-//         }
-//              .position7pictures {
-//             grid-area: 8/1/9/-1; 
-//             margin: auto;
+    .position8pictures {
+        grid-area: 8/1/9/9; 
+    }
 
-//         }
+    .position9pictures {
+        grid-area: 8/9/9/-1; 
+    }
 
-//                  .position8pictures {
-//             grid-area: 9/1/10/-1; 
-//             margin: auto;
-//         }
-//                  .position9pictures {
-//             grid-area: 10/1/11/-1; 
-//             margin: auto;
-//         }
+    .position10pictures {
+        grid-area: 5/1/6/-1; 
+        margin-bottom: 5%;
+    }
 
-//             .position8 {
-//         grid-area: 6/1/7/-1;
-//         margin:5%;
-//         margin-top: 10%;
-
-//     }
-// }
-
-    // #labelSearch{
-    //    margin-left: 10vh;  
-    // }
     
-      .position5 {
+    .position5 {
         grid-area: 5/1/6/6;
         margin:5%
-
     }
 
     .position8 {
         grid-area: 5/8/6/13;
         margin:5%;
         margin-top: 10%;
-
     }
 
 
@@ -265,48 +174,45 @@ nav {
             grid-area: 7/1/8/-1; 
             margin: auto;
         }
-             .position7pictures {
+        .position7pictures {
             grid-area: 8/1/9/-1; 
             margin: auto;
 
         }
 
-                 .position8pictures {
+        .position8pictures {
             grid-area: 9/1/10/-1; 
             margin: auto;
         }
-                 .position9pictures {
+        .position9pictures {
             grid-area: 10/1/11/-1; 
             margin: auto;
         }
 
-            .position8 {
-        grid-area: 6/1/7/-1;
-        margin:5%;
-        margin-top: 10%;
+        .position8 {
+            grid-area: 6/1/7/-1;
+            margin:5%;
+            margin-top: 10%;
 
     }
 }
 
     @include tablet1{
-           .position8 { grid-area: 5/10/6/-1;
-        margin:5%;
-        margin-top: 10%; 
+        .position8 { grid-area: 5/10/6/-1;
+            margin:5%;
+            margin-top: 10%; 
 
-      .position3 {
-            // grid-area: 3/1/4/-1;
-          margin-left: 2px;
+        .position3 {           
+            margin-left: 2px;
          }
 
-
-           }
     }
+}
 
 
-        .position5_karta {
+    .position5_karta {
         grid-area: 6/1/7/-1;
         margin:auto
-
     }
 
    #flag{
@@ -328,22 +234,3 @@ nav {
 
     }
 
-//     #onecat 
-//  {
-//      width: 50vh
-//      }
-
-    //    .position5 {
-    //     grid-area: 5/1/6/6;
-    //     margin:5%
-
-    // }
-
-
-   
-
-
-    // #flag{
-    //     position: relative;
-    //     margin-top: 0;
-    // }

@@ -5,81 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <script type="module" src="js/app1.js"></script>
     <link rel="stylesheet" href="scss/main.scss">
-    <title>Document</title>
+    <title>Pictures</title>
 </head>
 <body>
-        <div class="grid-container">
-
+<div class="grid-container">
+        <!--Definierar gridden-->
+                 
     <header class="position1">
-      <!--meny-->
-        <!-- <button class="menu-btn open" id="open-menu">
-            <span class="menu-icon">
-                <span class="bars"></span>
-                <span class="bars"></span>
-                <span class="bars"></span>
-            </span>
-            <span class="menu-text">Meny</span>
-        </button>   -->
+   <!--Huvudmeny-->
         <nav id ="nav-menu">
-             <!-- <button class="menu-btn close" id="close-menu">
-                <span class="menu-icon">
-                    <span class="bars cross1"></span>
-                    <span class="bars cross2"></span>
-                </span>
-                <span class="menu-text">Stäng meny</span>
-            </button>  -->
             <ul>
-                         <li><a href="index.html">Startsida</a></li>  
-                <li><a href="pictures.html">Pictures</a></li>             
-              
-             
+                <li><a href="index.html">Front page</a></li>  
+                <li><a href="pictures.html">Pictures</a></li>                          
             </ul>
         </nav>  
-        </header>
 
-<div class="position2">
+    </header>
 
-           <picture>
+    <div class="position2">
+
+        <picture>
             <source srcset="images/catHeader.jpg?as=avif&width=1512" type="image/avif" />
             <source srcset="images/catHeader.jpg?as=webp&width=1512" type="image/webp" />
             <img class="picture2" id="imgHeader" src="images/catHeader.jpg?width=1512" alt="Cute cat"/>
-    <!--https://pixabay.com/photos/cat-animal-cat-portrait-cats-eyes-1045782/-->
+            <!--Bilden tagen ifrån: https://pixabay.com/photos/cat-animal-cat-portrait-cats-eyes-1045782/ , den är okej att använda-->
         </picture>
 
-</div>
+    </div>
               <section class="position3">
-    <!-- <h1>Pictures of cats</h1> -->
-    <!-- <p>Here you can press a button to see a bit of information about a cat. 
-        If you can't see the cat you are looking for change the number of cats you can see (max 68 cats). 
-        You can change the number of cats you see to 68 and search for a specifik cat. 
-        
-    </p> -->
-    </section>
 
-<select class="position4pictures" name="catsSelect" id="catsSelect"></select>
-    <a class="position8pictures" id="buttonTest"></a>
+             </section>
+
+    <select class="position4pictures" name="catsSelect" id="catsSelect"></select>
+    <!--Element som ska skapa en lista rullista av kattraser att välj mellan-->
 
 
+    <div class="position5pictures" id="catName1"></div>
+
+    <img class="position6pictures" id="catSelect"></img>
+    <img class="position7pictures" id="catSelect2"></img>
+    <img class="position8pictures" id="catSelect3"></img>
+    <img class="position9pictures" id="catSelect4"></img>
+     <!--Bildelement som ska visa bilder på katter (via API)-->
 
 
-<div class="position5pictures" id="catName1"></div>
-
-
-<img class="position6pictures" id="catSelect"></img>
-<img class="position7pictures" id="catSelect2"></img>
-<img class="position8pictures" id="catSelect3"></img>
-<img class="position9pictures" id="catSelect4"></img>
-
-<div class="position10pictures">
-  <h2 id="pictureH">Select the cat you want more pictures of</h2>
+    <div class="position10pictures">
+        <h2 id="pictureH">Select the cat you want more pictures of</h2>
            <picture>
             <source srcset="images/kittenCoconut.png?as=avif&width=1512" type="image/avif" />
             <source srcset="images/kittenCoconut.png?as=webp&width=1512" type="image/webp" />
             <img class="picture3" id="kittenCoconut" src="images/kittenCoconut.png?width=1512" alt="Cute cat"/>
-    <!--https://pixabay.com/photos/cat-animal-cat-portrait-cats-eyes-1045782/-->
+        <!--Bilden tagen ifrån:https://pixabay.com/photos/cat-animal-cat-portrait-cats-eyes-1045782/ , den är okej att använda-->
         </picture>
 
-</div>
+    </div>
 
 
     <footer class="position10">

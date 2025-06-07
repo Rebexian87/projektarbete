@@ -3,40 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startsida</title>
+    <title>Front page</title>
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+     <!--Länkar för att kunna använda leaflet-->
     <script type="module" src="js/app2.js"></script>
     <link rel="stylesheet" href="scss/main.scss">
     
 </head>
 <body>
     <div class="grid-container">
+        <!--Definiertar gridden-->
 
     <header class="position1">
-      <!--meny-->
-        <!-- <button class="menu-btn open" id="open-menu">
-            <span class="menu-icon">
-                <span class="bars"></span>
-                <span class="bars"></span>
-                <span class="bars"></span>
-            </span>
-            <span class="menu-text">Meny</span> -->
-        </button>  
-        <nav id ="nav-menu">
-             <!-- <button class="menu-btn close" id="close-menu">
-                <span class="menu-icon">
-                    <span class="bars cross1"></span>
-                    <span class="bars cross2"></span>
-                </span>
-                <span class="menu-text">Stäng meny</span>
-            </button>  -->
+  
+         <!--Huvudmeny-->
+    <nav id ="nav-menu">
             <ul>
-                         <li><a href="index.html">Startsida</a></li>  
+                <li><a href="index.html">Front page</a></li>  
                 <li><a href="pictures.html">Pictures</a></li>             
               
              
@@ -44,56 +32,51 @@
         </nav>  
         </header>
 
-<div class="position2">
+    <div class="position2">
 
            <picture>
             <source srcset="images/catHeader.jpg?as=avif&width=1512" type="image/avif" />
             <source srcset="images/catHeader.jpg?as=webp&width=1512" type="image/webp" />
-            <img class="picture2" id="imgHeader" src="images/catHeader.jpg?width=1512" alt="Cute cat"/>
-    <!--https://pixabay.com/photos/cat-animal-cat-portrait-cats-eyes-1045782/-->
+            <img class="picture2" id="imgHeader" src="images/catHeader.jpg?width=1512" alt="Cute cat"/>    
         </picture>
-</div>
+        <!--Bilden tagen ifrån: https://pixabay.com/photos/cat-animal-cat-portrait-cats-eyes-1045782/ , den är okej att använda-->
+    </div>
 
 
-      <section id="infoText" class="position3">
-    <h1>Information about cats</h1>
-    <p>Here you can press a button to see a bit of information about a cat. 
+    <section id="infoText" class="position3">
+        <h1>Information about cats</h1>
+        <p>Here you can press a button to see a bit of information about a cat. 
         If you can't see the cat you are looking for change the number of cats you can see (max 68 cats). 
         You can change the number of cats you see to 68 and search for a specifik cat. 
         
-    </p>
+        </p>
     </section>
         
     
-        <div class="position4"><label id= "labelSearch" for="inputCat">Search: </label> <input  id="inputCat" type="text"></div>
-        
-        
-       <!--<button id="button1">Klick</button> --> 
+    <div class="position4"><label id= "labelSearch" for="inputCat">Search: </label> <input  id="inputCat" type="text"></div>
+       <!--Sökbar-->       
+ 
+    <nav class="position5" id="mainnav">
 
 
+    <div id="showNumberOfCats">
+        <label id= "labelMax" for="numberOfCats">Max antal: </label><input type="number" id="numberOfCats" value="68" min="1" max="200">
+        <!--Man kan ändra maxantalet som visas på sidan-->    
+    </div>
 
- <nav class="position5" id="mainnav">
-
-
-          <div id="showNumberOfCats">
-                        <label id= "labelMax" for="numberOfCats">Max antal: </label><input type="number" id="numberOfCats" value="68" min="1" max="200">
-                    </div>
         <ul id="cats"></ul>
-
+        <!--element för att göra en lista med knappar-->    
         
-</nav>
+    </nav>
 
+    <div class="position7" id="oneCat"> </div>
+    <!--div/id för att skapa en funktion som händer när man trycker på en kattras (som döljer en del element från sidan)-->
 
+        <img id="flag"></img>
+        <!--imgid för att få fram flaggan-->
 
-
-
-
-
- <div class="position7" id="oneCat"> </div>
-
-  <img id="flag"></img>
- <div class="position5_karta" id="map"></div>
-
+    <div class="position5_karta" id="map"></div>
+        <!--div för att få fram kartan-->
  
     <section  class="position8"> 
 
@@ -105,14 +88,14 @@
     
         </picture>
         <a id="cuteCatButton" ></a>
-        <!--picture taken from: https://pixabay.com/illustrations/cat-black-cat-eyes-table-curiosity-8575768/, it´s free to use but not sell-->
+        <!--picture taken from: https://pixabay.com/illustrations/cat-black-cat-eyes-table-curiosity-8575768/, it´s free to use but not sell, button för att ta sig till bildsidan-->
         
     </section>
 
     <div class="position9"> <a id="buttonStart" ></a></div>
- 
+        
 
- <!-- <a href="pictures.html"></a><div class="position7flag"><img id="flag"></img></div> -->
+
 
     
     

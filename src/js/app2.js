@@ -1,22 +1,32 @@
 "use strict"
 
+/**
+  * @function window.onload
+  * Körs när man kommer in på sidan
+ */
 window.onload = init;
 
+   /**
+    * Funktion som innehåller en eventlistener som finns när sidan startar och anropar en funktion
+    */
 function init () {
-       getcatApi ()  //När sidan startar så anropas funktionen getcatApi
-        document.querySelector("#inputCat").addEventListener("input", filterData); //händelsehanterar som händer när man börjar skriva in text i sökfält
+       getcatApi ()  
+        document.querySelector("#inputCat").addEventListener("input", filterData); 
         document.getElementById("oneCat").style.display='none';
   
 }
 /**
- * 
+ * En tom array som kommer att innehålla data från API
+ *  @type {cats[]}
  */
 let cats=[]
 
 /**
  * @async
- * @function
- * 
+ * @function getcatApi
+ * @param {string} url - The URL to download from.
+ * @throws {Error} -Om vi inte får någon data
+ * @returns {Promise|cats}   - Datan som vi får från url
  */
 async function getcatApi(){
 
@@ -42,20 +52,21 @@ try {const response = await fetch ("https://api.thecatapi.com/v1/breeds");
   catch (error){console.error(error)}   
 }
 
-/**
- * 
- */
+
    let numberOfCatsEl = document.getElementById("numberOfCats")
+
    /**
-    * 
+    * Händelsehanterare
+    * @event- När element ändras anropas en funktion
     */
    numberOfCatsEl.addEventListener("change", getcatApi)
 
  
 
     /**
-     * @function
-     * @param {*} catData 
+     * hdrjghaklhgloagh
+     * @param {any[]} catData - data från API
+     * @returns {HTMLElement} - HTML-element som syns på sidan
      */
 function displayCat (catData) {
 
@@ -65,7 +76,13 @@ function displayCat (catData) {
 
         
        catData.length=numberOfCatsEl.value
-      catData.forEach(cat => {  //Loopar igenom katter
+         /**
+         * Läsar in data från API och loopar igenom den så vi kan få fram olika element och attribut
+         * @param {any[]} cat -information som loopas igenom från API. Väljer vilken information man vill ha från AP som exempelvis kattras
+         * @returns {HTMLElement} - Returnerar en del element som syns på sidan 
+         * @returns {fires} - händelsehanterare som anropar andra funktioner 
+         */
+      catData.forEach(cat => {  
 
 
            let newElLi= document.createElement ("li")   
@@ -98,7 +115,7 @@ function displayCat (catData) {
     
 
 /**
- * 
+ * Filtrerar data som loopas igenom i funktion displayCat så attman kan söka på en specifik kattras
  */
 function filterData () {   //Funktion som gör att när man skriver så filtreras datan i tabellen till det man skriver . 
 
@@ -115,14 +132,18 @@ displayCat(filteredData) //anropar funktionen  displayCourses med filtreringsfun
 
 
 /**
- * 
+ * En tom array som kommer att innehålla data från API
+ * @type {location[]} 
  */
 let location = [];
 
 
 /**
- * 
- * @param {*} e 
+ * @async
+ * @function showcountry
+ * @param {string} url - The URL to download from.
+ * @param {event} e -När man klickar på ett element i listan så anropas denna funktion och targetar id. 
+ * @returns {Promise|location} -Datan som vi får från url
  */
  async function showcountry(e) {
   
@@ -143,15 +164,17 @@ catch (error){console.error(error)}
 
  }
 /**
- * 
- * @param {*} data 
+ * Funktion som visar plats och markerar denna
+ * @param {any[]} data - data från API
+ * @returns {map} - Karta på den aktuella platsen
+ * @returns {marker} - marerar den aktuella platsen.
  */
  function displayPlace (data) {
     
-  let latitude = data[0].lat  //["lat"];
+  let latitude = data[0].lat  
   console.log(latitude);
 
-  let longitude = data[0].lon  //["lat"];
+  let longitude = data[0].lon  
   console.log(longitude)
   
   let country=data[0].name
@@ -176,8 +199,9 @@ catch (error){console.error(error)}
 
 
 /**
- * 
- * @param {*} e 
+ * Funktion som visar upp en del nya element och tar bort element som inte längre ska synas
+ * @param {event} e - Vis klick så anropas funktion och värdet från elemnt läses in  
+ * @returns {HTMLElement} -som visas på sidan
  */
  function showOneButton (e) {
 
@@ -217,8 +241,11 @@ let startButtonTextEl=document.createTextNode("Back to the front page")
 
  }
 /**
- * 
- * @param {*} e 
+ * En funktion som hämtar in data och visar upp en flagga
+ * @async
+ * @function showCountryFlag - 
+ * @param {event} e - När man klickar på ett element så sker denna funktion
+ * @returns {img} - bild på flagga 
  */
 async function showCountryFlag(e){
 
@@ -244,28 +271,5 @@ let url=`https://flagsapi.com/${e.target.id}/flat/64.png`
 
 
 
-// // Meny-knapparna
-// let openBtn = document.getElementById("open-menu");
-// let closeBtn = document.getElementById("close-menu");
-
-
-// openBtn.addEventListener('click', toggleMenu);
-// closeBtn.addEventListener('click', toggleMenu);
-
-// //Navigeringsmeny
-// function toggleMenu() {
-//     let navMenuEl = document.getElementById("nav-menu");
-
-//     //hämtar in css för menyn
-//     let style = window.getComputedStyle(navMenuEl);
-
-//     //koll om navigering är synlig eller ej, ändrar display block/none
-//     if(style.display === "none") {
-//         navMenuEl.style.display = "block";
-//     } else {
-//         navMenuEl.style.display = "none";
-//     }
-// }
-// //Meny/Hamburgarmenykod är taget från MallarMiun och anpassats till uppgiften
 
 

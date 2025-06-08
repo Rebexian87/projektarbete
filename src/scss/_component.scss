@@ -71,7 +71,8 @@ button {@include fonts (1.4em, 120%); font-family: base.$font-stack;  cursor: po
 
 #labelSearch{
    @include fonts (1.6em, 120%); font-family: base.$font-stack;   /*Använder mixin för fonts. Variabel för font-family*/
-    margin-left: 10vh;  
+    margin-left: 2.4em; 
+    margin-bottom: 0.4em;
 }
 
 #inputCat{

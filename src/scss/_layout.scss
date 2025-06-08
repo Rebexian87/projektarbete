@@ -22,6 +22,13 @@
 } 
 
 
+@mixin tablet2{ /*Mixin för mediaqueries, maxwidth*/
+    @media(max-width: base.$tablet) {
+        @content;
+    }
+}
+
+
  %margin-msg { /*marginaler som används flera gånger i griden inlagd som inheritance*/
      margin:auto;
      margin-top: 5%;
@@ -118,7 +125,8 @@ nav {
     .position4 {
         grid-area: 4/1/5/-1;
         margin-top: 4vh;
-        margin-left: 4vh;
+        margin-left: 2vh;
+        margin-bottom: 1vh;
 
     }
 
@@ -163,7 +171,7 @@ nav {
     }
 
     .position8 {
-        grid-area: 5/8/6/13;
+        grid-area: 5/9/6/13;
         margin:5%;
         margin-top: 10%;
     }
@@ -208,6 +216,15 @@ nav {
 
     }
 }
+
+    @include tablet2{
+        .position8 { grid-area: 6/1/7/-1;
+            margin:5%;
+            margin-top: 10%;
+        }
+
+    }
+
 
 
     .position5_karta {

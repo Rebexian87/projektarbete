@@ -64,11 +64,8 @@
  }
 
 
-  @keyframes cuteCatButAni {
- 
-    50% {scale: 120%} /*Knappen blir större*/
-
-  
+  @keyframes cuteCatButAni { 
+    50% {scale: 120%} /*Knappen blir större*/  
  }
 
 
@@ -127,13 +124,12 @@
 
 #kittenCoconut{
        animation-name: catCoconut;  /*namn på animering*/
-       animation-duration: 16s;   /*så här länga varar animeringen*/
+       animation-duration: 12s;   /*så här länga varar animeringen*/
        animation-iteration-count: infinite; /*animeringen går hela tiden*/
        animation-direction: alternate;/*animeringen går fram o tillbaka*/ 
 }
 
-@keyframes catCoconut{
- 
+@keyframes catCoconut{ 
      50% {transform: rotatey(180deg)} /*bild roteras i y-led*/
 }
 
